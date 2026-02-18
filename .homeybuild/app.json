@@ -643,6 +643,21 @@
               }
             },
             {
+              "id": "rtsp_url",
+              "type": "text",
+              "label": {
+                "en": "RTSP URL",
+                "nl": "RTSP URL",
+                "de": "RTSP URL"
+              },
+              "value": "rtsp://192.168.0.0:8554/front",
+              "hint": {
+                "en": "Enter the rtsp url of your Willow.",
+                "nl": "Voer de rtsp url van uw Willow in.",
+                "de": "Geben Sie die RTSP URL Ihrer Willow ein."
+              }
+            },
+            {
               "id": "interval",
               "type": "number",
               "label": {
@@ -663,6 +678,32 @@
     }
   ],
   "widgets": {
+    "testje": {
+      "name": {
+        "en": "testje"
+      },
+      "height": 188,
+      "settings": [],
+      "api": {
+        "getSomething": {
+          "method": "GET",
+          "path": "/"
+        },
+        "addSomething": {
+          "method": "POST",
+          "path": "/"
+        },
+        "updateSomething": {
+          "method": "PUT",
+          "path": "/:id"
+        },
+        "deleteSomething": {
+          "method": "DELETE",
+          "path": "/:id"
+        }
+      },
+      "id": "testje"
+    },
     "willow": {
       "name": {
         "en": "Willow"
@@ -730,6 +771,33 @@
         }
       },
       "id": "willow"
+    },
+    "willow-remote-control": {
+      "name": {
+        "en": "Willow Remote Control"
+      },
+      "height": 188,
+      "transparent": true,
+      "settings": [],
+      "api": {
+        "getSomething": {
+          "method": "GET",
+          "path": "/"
+        },
+        "addSomething": {
+          "method": "POST",
+          "path": "/"
+        },
+        "updateSomething": {
+          "method": "PUT",
+          "path": "/:id"
+        },
+        "deleteSomething": {
+          "method": "DELETE",
+          "path": "/:id"
+        }
+      },
+      "id": "willow-remote-control"
     }
   },
   "capabilities": {

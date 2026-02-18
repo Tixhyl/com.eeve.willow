@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <style>
+      .homey-custom-icon-arrow-up {
+        -webkit-mask-image: url("TablerArrowBigUpFilled.svg");
+        mask-image: url("TablerArrowBigUpFilled.svg");
+      }
+
+      .homey-custom-icon-arrow-left {
+        -webkit-mask-image: url("TablerArrowBigLeftFilled.svg");
+        mask-image: url("TablerArrowBigLeftFilled.svg");
+      }
+
+      .homey-custom-icon-arrow-down {
+        -webkit-mask-image: url("TablerArrowBigDownFilled.svg");
+        mask-image: url("TablerArrowBigDownFilled.svg");
+      }
+
+      .homey-custom-icon-arrow-right {
+        -webkit-mask-image: url("TablerArrowBigRightFilled.svg");
+        mask-image: url("TablerArrowBigRightFilled.svg");
+      }
+
+      .homey-custom-icon-stop {
+        -webkit-mask-image: url("TablerPlayerStopFilled.svg");
+        mask-image: url("TablerPlayerStopFilled.svg");
+      }
+
+      .size-medium {
+        width: 32px;
+        height: 32px;
+      }
+
+      .icon-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+
+      .controls-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .arrow-keys {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        place-items: center;
+        background-color: var(--homey-color-mono-500);
+      }
+
+      .arrow-up {
+        grid-column: 2;
+      }
+
+      .arrow-left {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .arrow-down {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .arrow-right {
+        grid-column: 3;
+        grid-row: 2;
+      }
+    </style>
+  </head>
+
+  <body class="homey-widget">
+    <div class="controls-container">
+      <div class="arrow-keys">
+        <button class="icon-button size-medium arrow-up" id="control-up">
+          <div class="homey-custom-icon-arrow-up"></div>
+        </button>
+        <button class="icon-button size-medium arrow-left" id="control-left">
+          <div class="homey-custom-icon-arrow-left"></div>
+        </button>
+        <button class="icon-button size-medium arrow-down" id="control-down">
+          <div class="homey-custom-icon-arrow-down"></div>
+        </button>
+        <button class="icon-button size-medium arrow-right" id="control-right">
+          <div class="homey-custom-icon-arrow-right"></div>
+        </button>
+      </div>
+      <button class="icon-button size-medium" id="control-stop">
+        <div class="homey-custom-icon-stop"></div>
+      </button>
+    </div>
+  </body>
+</html>

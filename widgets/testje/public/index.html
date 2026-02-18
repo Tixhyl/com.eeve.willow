@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <style>
+      /* Example of a custom CSS class. */
+      .custom-image-class {
+        margin: var(--homey-su-3) auto var(--homey-su-5);
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body class="homey-widget">
+    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <img src="homey-logo.png" alt="Homey logo" class="custom-image-class" />
+    <p class="homey-text-regular homey-text-align-center">
+      Edit public/index.html and hit refresh.
+    </p>
+
+    <script type="text/javascript">
+      function onHomeyReady(Homey) {
+        Homey.ready();
+
+        // View the settings the user provided if your widget has settings.
+        console.log("Widget settings:", Homey.getSettings());
+
+        // Fetch something from your app.
+        Homey.api("GET", "/", {})
+          .then((result) => {
+            console.log(result);
+          })
+          .catch(console.error);
+      }
+    </script>
+  </body>
+</html>

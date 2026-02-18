@@ -1,0 +1,26 @@
+{
+  "name": {
+    "en": "Willow Remote Control"
+  },
+  "height": 188,
+  "transparent": true,
+  "settings": [],
+  "api": {
+    "getSomething": {
+      "method": "GET",
+      "path": "/"
+    },
+    "addSomething": {
+      "method": "POST",
+      "path": "/"
+    },
+    "updateSomething": {
+      "method": "PUT",
+      "path": "/:id"
+    },
+    "deleteSomething": {
+      "method": "DELETE",
+      "path": "/:id"
+    }
+  }
+}

@@ -1,39 +1,57 @@
-[{
+[
+  {
     "type": "group",
     "label": {
-        "en": "Willow Settings",
-        "nl": "Willow Instellingen",
-        "de": "Willow Einstellungen"
+      "en": "Willow Settings",
+      "nl": "Willow Instellingen",
+      "de": "Willow Einstellungen"
     },
-    "children": [{
-            "id": "ipaddress",
-            "type": "text",
-            "label": {
-                "en": "IP Address",
-                "nl": "IP Adres",
-                "de": "IP-Adresse"
-            },
-            "value": "192.168.0.0",
-            "hint": {
-                "en": "Enter the ip address of your Willow.",
-                "nl": "Voer het ip-adres van uw Willow in.",
-                "de": "Geben Sie die IP-Adresse Ihrer Willow ein."
-            }
+    "children": [
+      {
+        "id": "ipaddress",
+        "type": "text",
+        "label": {
+          "en": "IP Address",
+          "nl": "IP Adres",
+          "de": "IP-Adresse"
         },
-        {
-            "id": "interval",
-            "type": "number",
-            "label": {
-                "en": "Interval",
-                "nl": "Interval",
-                "de": "Intervall"
-            },
-            "value": 60,
-            "hint": {
-                "en": "Enter the refresh interval in seconds.",
-                "nl": "Voer de verversingsinterval in seconden in.",
-                "de": "Geben Sie das Aktualisierungsintervall in Sekunden ein."
-            }
+        "value": "192.168.0.0",
+        "hint": {
+          "en": "Enter the ip address of your Willow.",
+          "nl": "Voer het ip-adres van uw Willow in.",
+          "de": "Geben Sie die IP-Adresse Ihrer Willow ein."
         }
+      },
+      {
+        "id": "rtsp_url",
+        "type": "text",
+        "label": {
+          "en": "RTSP URL",
+          "nl": "RTSP URL",
+          "de": "RTSP URL"
+        },
+        "value": "rtsp://192.168.0.0:8554/front",
+        "hint": {
+          "en": "Enter the rtsp url of your Willow.",
+          "nl": "Voer de rtsp url van uw Willow in.",
+          "de": "Geben Sie die RTSP URL Ihrer Willow ein."
+        }
+      },
+      {
+        "id": "interval",
+        "type": "number",
+        "label": {
+          "en": "Interval",
+          "nl": "Interval",
+          "de": "Intervall"
+        },
+        "value": 60,
+        "hint": {
+          "en": "Enter the refresh interval in seconds.",
+          "nl": "Voer de verversingsinterval in seconden in.",
+          "de": "Geben Sie das Aktualisierungsintervall in Sekunden ein."
+        }
+      }
     ]
-}]
+  }
+]

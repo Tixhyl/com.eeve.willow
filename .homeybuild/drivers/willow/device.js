@@ -10,6 +10,7 @@ class MyDevice extends Device {
     this.is_error = false;
     this.error_message = "";
     this.ip = this.getSettings().ipaddress;
+    this.rtsp_url = this.getSettings().rtsp_url;
     this.interval = this.getSettings().interval;
     this.person_detected = false;
     this.person_detected_flag = false;
@@ -59,7 +60,39 @@ class MyDevice extends Device {
     this.getParameters(true).catch((err) => this.handleApiError(err));
     this.getPersonDetection(true).catch((err) => this.handleApiError(err));
 
+    // Setup camera video
+    await this.setupCameraVideo();
+
     this.log("Willow has been initialized");
+  }
+
+  async setupCameraVideo() {
+    try {
+      const video = await this.homey.videos.createVideoRTSP({
+        allowInvalidCertificates: true,
+        demuxer: "h265",
+      });
+
+      /*
+       * The video url listener takes no arguments. It simply builds the
+       * URL to the RTSP stream using the username and password.
+       */
+      video.registerVideoUrlListener(async () => {
+        return {
+          url: this.rtsp_url,
+        };
+      });
+
+      /*
+       * Attach the camera to the device.
+       */
+      await this.setCameraVideo("", "Willow Camera", video);
+
+      // Store the video instance for potential updates
+      this.video = video;
+    } catch (err) {
+      this.error("Error creating camera:", err);
+    }
   }
 
   async getFrontImage() {
@@ -363,6 +396,11 @@ class MyDevice extends Device {
     }
     if (newSettings.interval !== undefined) {
       this.interval = newSettings.interval;
+    }
+    if (newSettings.rtsp_url !== undefined) {
+      this.rtsp_url = newSettings.rtsp_url;
+      // Recreate camera video with new RTSP URL
+      await this.setupCameraVideo();
     }
     this.getParameters().catch((err) => this.handleApiError(err));
   }
