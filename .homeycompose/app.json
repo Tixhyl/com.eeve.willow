@@ -1,17 +1,21 @@
 {
   "id": "com.eeve.willow",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "compatibility": ">=12.1.2",
   "sdk": 3,
   "brandColor": "#000000",
-  "platforms": ["local"],
+  "platforms": [
+    "local"
+  ],
   "name": {
     "en": "EEVE"
   },
   "description": {
     "en": "Personal Robot"
   },
-  "category": ["appliances"],
+  "category": [
+    "appliances"
+  ],
   "permissions": [],
   "images": {
     "small": "/assets/images/small.png",
