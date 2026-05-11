@@ -15,7 +15,7 @@
     "dependencies": {
         "axios": "^0.26.1",
         "fetch": "^1.1.0",
-        "homey": "^3.9.6",
+        "homey": "^3.12.2",
         "node-abort-controller": "^3.0.1",
         "node-fetch": "^2.6.1",
         "uuid": "^9.0.0"

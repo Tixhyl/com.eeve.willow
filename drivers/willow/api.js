@@ -22,10 +22,11 @@ class WillowApi {
     this.baseUrl = `http://${this.ip}:8080`;
   }
 
-  async axiosFetch(endpoint, _timeout = 30000) {
+  async axiosFetch(endpoint, _timeout = 30000, method = "get", data = null) {
     const url = `${this.baseUrl}${endpoint}`;
     try {
-      const resp = await axios.get(url, { timeout: _timeout });
+      const config = { timeout: _timeout, method };
+      const resp = await axios(url, data ? { ...config, data } : config);
       return resp.data;
     } catch (error) {
       let errCode;
@@ -39,7 +40,7 @@ class WillowApi {
       }
       throw new WillowApiError(
         `Error fetching ${endpoint}: ${error.message}`,
-        errCode
+        errCode,
       );
     }
   }
@@ -78,7 +79,7 @@ class WillowApi {
   async playSound(volume = 60) {
     this.log("Playing sound with volume", volume);
     return this.axiosFetch(
-      `/maintenance/sound/play?fileName=R2D2.wav&volume=${volume}`
+      `/maintenance/sound/play?fileName=R2D2.wav&volume=${volume}`,
     );
   }
 

@@ -48,7 +48,7 @@ class MyDevice extends Device {
     });
 
     this.setCameraImage("front", this.homey.__("camera"), this.myImage).catch(
-      (err) => this.error("Failed to set camera image:", err)
+      (err) => this.error("Failed to set camera image:", err),
     );
 
     // Update the image every 2 seconds
@@ -278,66 +278,67 @@ class MyDevice extends Device {
       await this.setCapabilityValue("status.user_activity", this.userActivity);
       await this.setCapabilityValue(
         "status.scheduled_activity",
-        this.scheduledActivity
+        this.scheduledActivity,
       );
+
       await this.setCapabilityValue(
         "measure_temperature.battery",
-        batteryStatus.temperature
+        batteryStatus.temperature,
       );
       await this.setCapabilityValue(
         "measure_battery",
-        batteryStatus.percentage
+        batteryStatus.percentage,
       );
       await this.setCapabilityValue(
         "measure_temperature.motherboard",
-        baseboardSensors.temperature
+        baseboardSensors?.temperature || 0,
       );
       await this.setCapabilityValue(
         "measure_humidity",
-        baseboardSensors.humidity
+        baseboardSensors?.humidity || 0,
       );
       await this.setCapabilityValue(
         "measure_temperature.module",
-        moduleSensors.temperature
+        moduleSensors.temperature,
       );
       await this.setCapabilityValue("rpm", mowerInfo.rpm);
       await this.setCapabilityValue(
         "height",
-        Math.round(mowerInfo.mowerHeight * 1000) / 10
+        Math.round(mowerInfo.mowerHeight * 1000) / 10,
       );
       await this.setCapabilityValue(
         "measure_current.charging_current",
-        dockingInfo.chargingCurrent
+        dockingInfo.chargingCurrent,
       );
       await this.setCapabilityValue(
         "measure_power",
-        powerSensor.receiver_power
+        powerSensor.receiver_power,
       );
       await this.setCapabilityValue(
         "status.docking_state",
-        dockingInfo.dockingState
+        dockingInfo.dockingState,
       );
       await this.setCapabilityValue("alarm_water", rainSensor.state === 1);
 
       await this.setCapabilityValue(
         "measure_current.mower_current",
-        powerSensor.mower_current
+        powerSensor.mower_current,
       );
       await this.setCapabilityValue(
         "measure_current.left_wheel_current",
-        powerSensor.left_wheel_current
+        powerSensor.left_wheel_current,
       );
       await this.setCapabilityValue(
         "measure_current.right_wheel_current",
-        powerSensor.right_wheel_current
+        powerSensor.right_wheel_current,
       );
       await this.setCapabilityValue(
         "measure_voltage.battery_voltage",
-        powerSensor.chg_bat_voltage
+        powerSensor.chg_bat_voltage,
       );
       await this.setCapabilityValue(
         "measure_voltage.receiver_voltage",
-        powerSensor.receiver_voltage
+        powerSensor.receiver_voltage,
       );
       await this.setCapabilityValue("measure_location_latitude", odometry.lat);
       await this.setCapabilityValue("measure_location_longitude", odometry.lon);
