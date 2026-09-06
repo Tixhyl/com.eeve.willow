@@ -1,7 +1,7 @@
 "use strict";
 
 const { Device } = require("homey");
-const fetch = require("node-fetch");
+const axios = require("axios");
 const { WillowApi, WillowApiError } = require("./api");
 
 class MyDevice extends Device {
@@ -42,9 +42,10 @@ class MyDevice extends Device {
     // Set camera image
     this.myImage = await this.homey.images.createImage();
     this.myImage.setStream(async (stream) => {
-      const res = await fetch(`http://${this.ip}:8080/image/front/img.jpg`);
-      if (!res.ok) throw new Error("Invalid Response");
-      return res.body.pipe(stream);
+      const res = await axios.get(`http://${this.ip}:8080/image/front/img.jpg`, {
+        responseType: 'stream'
+      });
+      return res.data.pipe(stream);
     });
 
     this.setCameraImage("front", this.homey.__("camera"), this.myImage).catch(
