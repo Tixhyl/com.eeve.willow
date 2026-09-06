@@ -1,6 +1,6 @@
 const Homey = require("homey");
 const axios = require("axios");
-const { v4: uuidv4 } = require("uuid");
+const crypto = require("crypto");
 
 class Driver extends Homey.Driver {
   // this method is called when the app is started and the Driver is inited
@@ -43,7 +43,7 @@ class Driver extends Homey.Driver {
         const to_add_willow_device = {
           name: "Willow",
           data: {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
           },
           settings: {
             ipaddress: connect_to_willow_address,
